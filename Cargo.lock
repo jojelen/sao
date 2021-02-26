@@ -192,16 +192,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3dcaa9ae7725d12cdb85b3ad99a434db70b468c09ded17e012d86b5c1010f7a7"
 
 [[package]]
-name = "hgrep"
-version = "0.1.0"
-dependencies = [
- "crossterm",
- "nix",
- "regex",
- "subprocess",
-]
-
-[[package]]
 name = "iovec"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -324,6 +314,16 @@ name = "regex-syntax"
 version = "0.6.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5eb417147ba9860a96cfe72a0b93bf88fee1744b5636ec99ab20c1aa9376581"
+
+[[package]]
+name = "sao"
+version = "0.1.0"
+dependencies = [
+ "crossterm",
+ "nix",
+ "regex",
+ "subprocess",
+]
 
 [[package]]
 name = "slab"
