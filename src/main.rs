@@ -22,7 +22,6 @@ fn main() {
     args.remove(0);
     args.push(String::from("-n"));
     args.push(String::from("-I"));
-    println!("args: {:?}", args);
 
 	let out = Exec::cmd("rgrep").args(&args)
       .stdout(Redirection::Pipe)
