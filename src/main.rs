@@ -5,7 +5,7 @@ use std::env;
 use std::ffi::CString;
 use std::io;
 use std::io::Write;
-use subprocess::*;
+use subprocess::{Exec, Redirection};
 
 fn split_line<'a>(line: &'a str, sep: &'static str) -> Option<(&'a str, &'a str)> {
     let sep_index: usize = line.find(sep)?;
@@ -42,7 +42,8 @@ fn main() {
         }
 
         if re.is_match(l) == false {
-            println!("{}", l);
+            let index_len = index.to_string().len() + 2; // Length of e.g. "5.)".
+            println!("{:width$}{}", "", l, width = index_len);
             continue;
         }
 
@@ -53,7 +54,7 @@ fn main() {
         let line_num = style(second_split.0).with(Color::Yellow);
 
         println!(
-            "{}.){}:{}: {}",
+            "{}.){}:{}:{}",
             style(index.to_string()).with(Color::Green),
             file_name,
             line_num,
