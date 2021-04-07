@@ -47,7 +47,11 @@ fn main() {
             continue;
         }
 
+        // Get file name. We skip files called tags.
         let first_split = split_line(l, ":").expect("Failed first split");
+        if first_split.0 == "tags" || first_split.0.ends_with("/tags") {
+            continue;
+        }
         let file_name = style(first_split.0).with(Color::Red);
 
         let second_split = split_line(first_split.1, ":").expect("Failed second split");
